@@ -1,8 +1,8 @@
 import "./style.css";
 
 export const setupContainerQueries = () => {
-  const boxList = document.getElementById("box-list");
-  if (!boxList) return;
+  const container = document.getElementById("container-queries");
+  if (!container) return;
 
   const generateItems = (count: number) => {
     const items = [];
@@ -15,21 +15,15 @@ export const setupContainerQueries = () => {
     }
     return items;
   };
-
   const data = generateItems(12);
-
-  const renderItems = (items: typeof data) => {
-    boxList.innerHTML = items
-      .map(
-        (item) => `
+  container.innerHTML = `<div class="box-list">${data
+    .map(
+      (item) => `
          <div class="box">
             <div class="box-title">${item.title}</div>
             <p>${item.desc}</p>
           </div>
           `
-      )
-      .join("");
-  };
-
-  renderItems(data);
+    )
+    .join("")}</div>`;
 };
