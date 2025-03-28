@@ -79,6 +79,7 @@ export const setupViewTransitions = () => {
               single-page applications (SPAs). Supported in Chrome from Chrome
               111
             </p>
+            <button class="btn btn-small">Click Me</button>
           </div>
           <div id="cross-document-transition" class="view-transitions-type">
             <div class="view-transitions-type-title">Cross-document</div>
@@ -86,6 +87,7 @@ export const setupViewTransitions = () => {
               Occurs between two different document, typical for MPAs. Supported
               in Chrome 126 and greater
             </p>
+             <button class="btn btn-small">Click Me</button>
           </div>
         </div>
         <div
