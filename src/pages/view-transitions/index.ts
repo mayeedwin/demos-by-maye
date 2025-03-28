@@ -1,7 +1,8 @@
-import './style.css';
-import { ColorFamily } from '../../types';
+import "./style.css";
 
-export function setupViewTransitions() {
+import { ColorFamily } from "../../types";
+
+const handleViewTransitions = () => {
   const sameDocumentTransition = document.getElementById(
     "same-document-transition"
   );
@@ -31,7 +32,7 @@ export function setupViewTransitions() {
   const ViewTransitionsTypeCard = () => {
     const div = document.createElement("div");
     div.className = "view-transitions-type-card";
-    
+
     const colorFamilies: ColorFamily[] = [
       { bg: "var(--blue-100)", border: "var(--blue-200)" },
       { bg: "var(--pink-100)", border: "var(--pink-200)" },
@@ -64,4 +65,33 @@ export function setupViewTransitions() {
   };
 
   renderViewTransitions(4);
-}
+};
+
+export const setupViewTransitions = () => {
+  const viewTransitions = document.getElementById("view-transitions");
+  if (!viewTransitions) return;
+  viewTransitions.innerHTML = ` <div class="view-transitions-content">
+        <div class="view-transitions-types">
+          <div id="same-document-transition" class="view-transitions-type">
+            <div class="view-transitions-type-title">Same-document</div>
+            <p class="view-transitions-type-desc">
+              Runs on a single document, this is typically the case in
+              single-page applications (SPAs). Supported in Chrome from Chrome
+              111
+            </p>
+          </div>
+          <div id="cross-document-transition" class="view-transitions-type">
+            <div class="view-transitions-type-title">Cross-document</div>
+            <p class="view-transitions-type-desc">
+              Occurs between two different document, typical for MPAs. Supported
+              in Chrome 126 and greater
+            </p>
+          </div>
+        </div>
+        <div
+          id="view-transitions-type-content"
+          class="view-transitions-type-content"
+        ></div>
+      </div>`;
+  handleViewTransitions();
+};

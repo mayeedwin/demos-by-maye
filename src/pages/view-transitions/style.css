@@ -20,12 +20,14 @@
   border-radius: 10px;
   cursor: pointer;
   flex: 1;
-}
 
-.view-transitions-type:hover .view-transitions-type-title {
-  transition: color, border, 0.35s ease-in-out;
-  text-decoration: underline;
-  color: var(--pink-600);
+  &:hover {
+    .view-transitions-type-title {
+      transition: color, border, 0.35s ease-in-out;
+      text-decoration: underline;
+      color: var(--pink-600);
+    }
+  }
 }
 
 .view-transitions-type-content {

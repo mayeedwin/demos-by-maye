@@ -1,7 +1,7 @@
-import './style.css';
+import "./style.css";
 
-export function setupContainerQueries() {
-  const boxList = document.getElementById('box-list');
+export const setupContainerQueries = () => {
+  const boxList = document.getElementById("box-list");
   if (!boxList) return;
 
   const generateItems = (count: number) => {
@@ -10,7 +10,7 @@ export function setupContainerQueries() {
       items.push({
         id: i,
         title: `Box ${i}`,
-        desc: "Resize the container to see the box change color & number of columns",
+        desc: "Resize the container to see the box change color & number of columns"
       });
     }
     return items;
@@ -32,4 +32,4 @@ export function setupContainerQueries() {
   };
 
   renderItems(data);
-}
+};
