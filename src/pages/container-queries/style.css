@@ -1,0 +1,53 @@
+.parent {
+  container: parent / inline-size;
+}
+
+.box-list {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  container: list / inline-size;
+}
+
+.box {
+  display: grid;
+  grid-row: span 2;
+  gap: 5px;
+  grid-template-rows: subgrid;
+  background: var(--white);
+  border-radius: 5px;
+  padding: 15px;
+  border: 1px solid var(--white);
+  cursor: pointer;
+}
+
+.box:hover {
+  background: var(--gray-100);
+  border-color: var(--gray-200);
+}
+
+.box p {
+  font-size: 14px;
+  color: var(--gray-600);
+  padding: 0;
+  margin: 0;
+}
+
+@container parent (max-width: 800px) {
+  .box-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@container parent (max-width: 600px) {
+  .box-list {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@container list (max-width: 800px) {
+  .box p {
+    font-size: 13px;
+    color: var(--cyan-700);
+  }
+}

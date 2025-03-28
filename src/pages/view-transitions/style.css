@@ -1,0 +1,86 @@
+.view-transitions-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.view-transitions-types {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.view-transitions-type {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.view-transitions-type:hover .view-transitions-type-title {
+  transition: color, border, 0.35s ease-in-out;
+  text-decoration: underline;
+  color: var(--pink-600);
+}
+
+.view-transitions-type-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.view-transitions-type-card {
+  height: 400px;
+  flex: 1;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  background-color: var(--white);
+  border: 1px solid var(--gray-200);
+}
+
+.view-transitions-type-card:hover {
+  transform: translateY(-4px);
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-from-right {
+  from {
+    transform: translateX(100);
+  }
+}
+
+@keyframes slide-to-left {
+  to {
+    transform: translateX(-100px);
+  }
+}
+
+::view-transition-old(root) {
+  animation: 90ms cubic-bezier(0.4, 0, 1, 1) both fade-out,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+  transition: all 0.3s ease-in-out;
+}
+
+::view-transition-new(root) {
+  animation: 210ms cubic-bezier(0, 0, 0.2, 1) 90ms both fade-in,
+    300ms cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+  transition: all 0.3s ease-in-out;
+}

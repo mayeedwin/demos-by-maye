@@ -1,0 +1,76 @@
+.transitions-content {
+  background-color: var(--white);
+  padding: 25px;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .transitions-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+.transitions-box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--cyan-100);
+  border: 1px solid var(--cyan-200);
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.transitions-box h4 {
+  text-decoration: underline;
+}
+
+.transitions-box.rotate:hover {
+  transition: transform 0.35s ease-in-out;
+  transform: rotate(5deg);
+}
+
+.transitions-box.bg-color:hover {
+  transition: background-color 0.35s ease-in-out;
+  background-color: var(--cyan-200);
+  border: 1px solid var(--cyan-300);
+}
+
+.transitions-box.all:hover {
+  transition: all 0.35s ease-in-out;
+  background-color: var(--cyan-200);
+  border: 1px solid var(--cyan-300);
+  transform: rotate(5deg);
+}
+
+.transitions-box.delay h4,
+.transitions-box.delay p {
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.transitions-box.delay .delay-content {
+  opacity: 1;
+  margin-top: 5px;
+}
+
+.transitions-box.delay h4 {
+  transition-delay: 0.2s;
+}
+
+.transitions-box.delay p {
+  transition-delay: 0.4s;
+}
+
+.transitions-box.delay:hover h4,
+.transitions-box.delay:hover p {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none;
+  }
+}
